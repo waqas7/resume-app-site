@@ -87,9 +87,31 @@ npx wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_
 ```
 
 `$CF_PAGES_BRANCH` is set automatically by Cloudflare CI on preview builds. Change `resume-app-site` if your Pages project name differs.
+
+### If deploy fails with `Authentication error [code: 10000]`
+
+Wrangler is using `CLOUDFLARE_API_TOKEN` from your project env vars, but that token **does not have Pages deploy permission** (dashboard Super Admin ≠ token scopes).
+
+**Fix (pick one):**
+
+**Option A — Remove custom token (try first)**  
+In Cloudflare → your project → **Settings → Environment variables**, **delete** `CLOUDFLARE_API_TOKEN` if you added it manually. Git-connected builds often use Cloudflare’s built-in CI credentials.
+
+**Option B — Create a token with correct permissions**  
+1. [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens) → **Create Token**  
+2. Use template **“Edit Cloudflare Workers”** (includes Pages), or custom token with:  
+   - **Account** → **Cloudflare Pages** → **Edit**  
+   - **Account** → **Account Settings** → **Read**  
+3. Set as encrypted env var `CLOUDFLARE_API_TOKEN` in your Cloudflare project  
+
+**Also check:** A Pages project named **`resume-app-site`** must exist (Workers & Pages → Create → Pages) before `wrangler pages deploy` can upload to it.
+
+### Steps
+
+1. Push this repo to GitHub
 2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
-3. Select your repo and use the settings above
-4. Add environment variables (see below)
+3. Select your repo and use the build/deploy settings above
+4. Add environment variables (see below) — **do not add `CLOUDFLARE_API_TOKEN` unless Option B above**
 5. Deploy
 6. **Custom domains** → add **waqaskay.com**
 
