@@ -9,7 +9,8 @@
     "lint": "eslint",
     "preview": "npx serve out",
     "deploy": "wrangler pages deploy out --project-name=resume-app-site --branch=main",
-    "deploy:preview": "wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_BRANCH"
+    "deploy:preview": "wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_BRANCH",
+    "deploy:ci": "node -e \"console.log('Build output is in out/ — published by Cloudflare from output directory')\""
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",

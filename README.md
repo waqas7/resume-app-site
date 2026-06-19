@@ -90,21 +90,36 @@ npx wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_
 
 ### If deploy fails with `Authentication error [code: 10000]`
 
-Wrangler is using `CLOUDFLARE_API_TOKEN` from your project env vars, but that token **does not have Pages deploy permission** (dashboard Super Admin ≠ token scopes).
+Your build **succeeds** — only `wrangler pages deploy` fails because `CLOUDFLARE_API_TOKEN` lacks **Pages → Edit** permission (or should be removed entirely).
 
-**Fix (pick one):**
+**Fastest fix — switch deploy command (try this first):**
 
-**Option A — Remove custom token (try first)**  
-In Cloudflare → your project → **Settings → Environment variables**, **delete** `CLOUDFLARE_API_TOKEN` if you added it manually. Git-connected builds often use Cloudflare’s built-in CI credentials.
+If **Build output directory** is set to `out`, Cloudflare may already publish static files after the build. Change deploy commands to a no-op:
 
-**Option B — Create a token with correct permissions**  
-1. [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens) → **Create Token**  
-2. Use template **“Edit Cloudflare Workers”** (includes Pages), or custom token with:  
-   - **Account** → **Cloudflare Pages** → **Edit**  
-   - **Account** → **Account Settings** → **Read**  
-3. Set as encrypted env var `CLOUDFLARE_API_TOKEN` in your Cloudflare project  
+| Field | Command |
+|---|---|
+| Production deploy | `npm run deploy:ci` |
+| Non-production deploy | `npm run deploy:ci` |
 
-**Also check:** A Pages project named **`resume-app-site`** must exist (Workers & Pages → Create → Pages) before `wrangler pages deploy` can upload to it.
+Push and redeploy. If the site goes live, you do not need Wrangler in CI.
+
+**If the site is still blank after that**, use one of these:
+
+**Option A — Remove custom token**  
+Delete **`CLOUDFLARE_API_TOKEN`** from project environment variables (Cloudflare CI provides its own credentials).
+
+**Option B — Create a token with Pages permission**  
+1. [Create API Token](https://dash.cloudflare.com/profile/api-tokens)  
+2. **Custom token** → Account resources → your account  
+3. Permissions: **Cloudflare Pages → Edit**, **Account Settings → Read**  
+4. Save as encrypted **`CLOUDFLARE_API_TOKEN`**  
+5. Also add **`CLOUDFLARE_ACCOUNT_ID`** = `4cb0323eece0ce3f1692d38e06529d28`  
+6. Deploy command back to: `npm run deploy`
+
+**Option C — Use Cloudflare Pages (not Workers Builds)**  
+Create project via **Workers & Pages → Create → Pages → Connect to Git** (not a Worker). Set build + output `out` only — no deploy command needed.
+
+**Also:** A Pages project named **`resume-app-site`** must exist before `npm run deploy` can work.
 
 ### Steps
 
