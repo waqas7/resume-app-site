@@ -3,12 +3,12 @@ export const APP_SHORT_NAME = "Resume Builder";
 export const APP_TAGLINE = "Build ATS-Friendly Resumes in Seconds with AI";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://waqaskay.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://muhammadwaqaskhan.com";
 export const PLAY_STORE_URL =
   process.env.NEXT_PUBLIC_PLAY_STORE_URL ??
   "https://play.google.com/store/apps/details?id=europasscvmake.app.dev";
 export const SUPPORT_EMAIL =
-  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "support@waqaskay.com";
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "support@muhammadwaqaskhan.com";
 
 export const TRUST = {
   rating: 4.8,

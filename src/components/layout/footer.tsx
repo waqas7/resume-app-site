@@ -77,7 +77,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={SITE_URL} className="hover:text-foreground">
-                  waqaskay.com
+                  muhammadwaqaskhan.com
                 </a>
               </li>
             </ul>

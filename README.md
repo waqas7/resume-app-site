@@ -2,7 +2,7 @@
 
 SEO-optimized marketing site for the **Resume Builder & CV Maker App**, built with Next.js and deployed to **Cloudflare Pages**.
 
-**Live domain:** [waqaskay.com](https://waqaskay.com)
+**Live domain:** [muhammadwaqaskhan.com](https://muhammadwaqaskhan.com)
 
 ## Tech Stack
 
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://waqaskay.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://muhammadwaqaskhan.com` |
 | `NEXT_PUBLIC_PLAY_STORE_URL` | Google Play store link |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Support email for mailto |
 | `NEXT_PUBLIC_GA_ID` | Optional Google Analytics 4 ID |
@@ -128,15 +128,15 @@ Create project via **Workers & Pages → Create → Pages → Connect to Git** (
 3. Select your repo and use the build/deploy settings above
 4. Add environment variables (see below) — **do not add `CLOUDFLARE_API_TOKEN` unless Option B above**
 5. Deploy
-6. **Custom domains** → add **waqaskay.com**
+6. **Custom domains** → add **muhammadwaqaskhan.com**
 
 ### Environment variables (Cloudflare Pages → Settings → Environment variables)
 
 | Variable | Value |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://waqaskay.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://muhammadwaqaskhan.com` |
 | `NEXT_PUBLIC_PLAY_STORE_URL` | `https://play.google.com/store/apps/details?id=europasscvmake.app.dev` |
-| `NEXT_PUBLIC_SUPPORT_EMAIL` | `support@waqaskay.com` |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | `support@muhammadwaqaskhan.com` |
 | `NEXT_PUBLIC_GA_ID` | *(optional)* |
 
 ### Manual deploy (optional)
@@ -155,7 +155,7 @@ Served at **`/app-ads.txt`** from [`public/app-ads.txt`](public/app-ads.txt).
 Replace `pub-XXXXXXXXXXXXXXXX` with your **AdMob publisher ID** (AdMob → Apps → App settings → app-ads.txt). Link this URL in Google Play Console under **App content → Advertising ID → app-ads.txt URL**:
 
 ```
-https://waqaskay.com/app-ads.txt
+https://muhammadwaqaskhan.com/app-ads.txt
 ```
 
 ## Replace Placeholder Images
