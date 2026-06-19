@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "preview": "npx serve out",
-    "deploy": "wrangler pages deploy out --project-name=resume-app-site"
+    "deploy": "wrangler pages deploy out --project-name=resume-app-site --branch=main",
+    "deploy:preview": "wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_BRANCH"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",

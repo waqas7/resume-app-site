@@ -57,7 +57,8 @@ You likely created a **Workers** project with deploy command `npx wrangler deplo
 | Product | **Workers & Pages → Pages** (not Workers) |
 | Build command | `npm run build` |
 | Build output directory | `out` |
-| **Deploy command** | `npm run deploy` |
+| **Deploy command (production)** | `npm run deploy` |
+| **Deploy command (non-production / preview)** | `npm run deploy:preview` |
 | Node version | 20+ |
 
 **Do not use** `npx wrangler deploy` — that is for Workers/OpenNext and will fail on this static site.
@@ -66,19 +67,26 @@ The deploy command must be **`wrangler pages deploy`** (uploads the `out/` folde
 
 ### Cloudflare dashboard — copy/paste settings
 
-```
-Build command:    npm run build
-Deploy command:   npm run deploy
-Output directory: out
-```
-
-Or paste the deploy command directly:
+**Production branch:** `main` (or your default branch)
 
 ```
-npx wrangler pages deploy out --project-name=resume-app-site
+Build command:              npm run build
+Deploy command:             npm run deploy
+Non-production deploy cmd:  npm run deploy:preview
+Output directory:           out
 ```
 
-Change `resume-app-site` if your Cloudflare Pages project has a different name.
+Or paste deploy commands directly:
+
+```bash
+# Production
+npx wrangler pages deploy out --project-name=resume-app-site --branch=main
+
+# Non-production / preview branches
+npx wrangler pages deploy out --project-name=resume-app-site --branch=$CF_PAGES_BRANCH
+```
+
+`$CF_PAGES_BRANCH` is set automatically by Cloudflare CI on preview builds. Change `resume-app-site` if your Pages project name differs.
 2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
 3. Select your repo and use the settings above
 4. Add environment variables (see below)
