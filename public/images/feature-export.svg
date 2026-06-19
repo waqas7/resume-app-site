@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#faf5ff"/>
+  <text x="600" y="90" fill="#1e293b" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="800">Export as <tspan fill="#7c3aed">PDF</tspan> or <tspan fill="#2563EB">Image</tspan></text>
+  <text x="600" y="135" fill="#64748b" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="20">Share anywhere, instantly</text>
+  <rect x="420" y="180" width="360" height="620" rx="32" fill="#111827" opacity="0.08"/>
+  <rect x="470" y="260" width="260" height="56" rx="16" fill="#2563EB"/>
+  <rect x="470" y="330" width="260" height="56" rx="16" fill="#7c3aed"/>
+  <rect x="450" y="420" width="300" height="160" rx="16" fill="white" stroke="#e9d5ff"/>
+</svg>

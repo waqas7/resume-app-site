@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume Builder & CV Maker App — Marketing Website
+
+SEO-optimized marketing site for the **Resume Builder & CV Maker App**, built with Next.js and deployed to **Cloudflare Pages**.
+
+**Live domain:** [waqaskay.com](https://waqaskay.com)
+
+## Tech Stack
+
+- Next.js 16 (App Router) + TypeScript
+- Tailwind CSS v4
+- Framer Motion (optional animations)
+- Markdown blog CMS
+- Static export for Cloudflare Pages
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Landing page with hero, features, social proof, CTAs |
+| `/features` | Detailed feature breakdown |
+| `/templates` | SEO-heavy template gallery with filters |
+| `/pricing` | Free vs Premium comparison |
+| `/blog` | Blog index + 4 SEO articles |
+| `/contact` | About + mailto support |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://waqaskay.com` |
+| `NEXT_PUBLIC_PLAY_STORE_URL` | Google Play store link |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | Support email for mailto |
+| `NEXT_PUBLIC_GA_ID` | Optional Google Analytics 4 ID |
 
-## Learn More
+## Deploy to Cloudflare Pages
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this repo to GitHub
+2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → Connect Git
+3. Configure build:
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+   - **Node version:** 20+
+4. Add environment variables (see above)
+5. Add custom domain **waqaskay.com**
+6. Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Manual deploy with Wrangler
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npx wrangler pages deploy out --project-name=resume-app-site
+```
 
-## Deploy on Vercel
+## Replace Placeholder Images
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Marketing screenshots are SVG placeholders in `public/images/`. Replace with your real PNG/WebP assets using the same filenames (or update paths in `src/lib/constants.ts`):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `logo.svg` → your app logo
+- `hero-feature-graphic.svg` → Play Store feature graphic
+- `feature-*.svg` → app screenshots
+
+## SEO Features
+
+- Per-page meta titles & descriptions
+- OpenGraph + Twitter cards
+- JSON-LD (SoftwareApplication, BlogPosting, FAQPage, BreadcrumbList)
+- `/sitemap.xml` and `/robots.txt`
+- Internal linking across blog posts
+
+## Scripts
+
+```bash
+npm run dev      # Development server
+npm run build    # Static export to /out
+npm run lint     # ESLint
+```
+
+After build, preview locally:
+
+```bash
+npx serve out
+```

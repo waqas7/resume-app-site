@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="96" fill="#6D28D9"/>
+  <path d="M96 96 L192 96 L96 192 Z" fill="white"/>
+  <text x="256" y="310" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="180" font-weight="800">CV</text>
+</svg>
