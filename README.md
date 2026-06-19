@@ -103,6 +103,16 @@ npx wrangler pages deploy out --project-name=resume-app-site
 
 Note: `wrangler pages deploy` uploads static files — different from `wrangler deploy` (Workers).
 
+## app-ads.txt (AdMob)
+
+Served at **`/app-ads.txt`** from [`public/app-ads.txt`](public/app-ads.txt).
+
+Replace `pub-XXXXXXXXXXXXXXXX` with your **AdMob publisher ID** (AdMob → Apps → App settings → app-ads.txt). Link this URL in Google Play Console under **App content → Advertising ID → app-ads.txt URL**:
+
+```
+https://waqaskay.com/app-ads.txt
+```
+
 ## Replace Placeholder Images
 
 Marketing screenshots are SVG placeholders in `public/images/`. Replace with your real PNG/WebP assets using the same filenames (or update paths in `src/lib/constants.ts`):
