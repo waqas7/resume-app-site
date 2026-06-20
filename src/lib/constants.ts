@@ -23,6 +23,8 @@ export const KEYWORDS = [
   "ATS resume templates",
   "create resume online",
   "AI resume builder",
+  "Android resume builder app",
+  "CV maker app Android",
 ];
 
 export const NAV_LINKS = [
@@ -33,12 +35,78 @@ export const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
+export type AndroidImageAsset = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export const ANDROID_IMAGES = {
+  heroTemplates: {
+    src: "/images/android/android-resume-builder-app-hero-templates.webp",
+    alt: "Android resume builder app showing ATS-friendly CV templates on Google Play — modern, professional, and minimal layouts",
+    width: 1024,
+    height: 500,
+  },
+  landDreamJob: {
+    src: "/images/android/android-resume-builder-land-dream-job-hero.webp",
+    alt: "Free Android CV maker app — build professional ATS resumes on mobile with no sign-up required",
+    width: 576,
+    height: 1024,
+  },
+  guidedBuilder: {
+    src: "/images/android/android-guided-resume-builder-step-editor.webp",
+    alt: "Android guided 8-step resume builder editor with smart forms and auto-save — CV maker app UK",
+    width: 576,
+    height: 1024,
+  },
+  templatesGallery: {
+    src: "/images/android/android-ats-resume-templates-gallery.webp",
+    alt: "20+ ATS resume templates on Android — modern, minimal, professional, and corporate UK CV layouts",
+    width: 576,
+    height: 1024,
+  },
+  livePreview: {
+    src: "/images/android/android-live-resume-preview-zoom.webp",
+    alt: "Live resume preview on Android with pinch-to-zoom — ATS-friendly CV maker app interface UK",
+    width: 576,
+    height: 1024,
+  },
+  dragDrop: {
+    src: "/images/android/android-resume-drag-drop-reorder-ui.webp",
+    alt: "Drag and drop resume section reordering in Android CV builder app — customize your UK CV",
+    width: 576,
+    height: 1024,
+  },
+  pdfExport: {
+    src: "/images/android/android-resume-pdf-export-feature.webp",
+    alt: "Export resume as PDF or image on Android — one-click share from CV maker app UK",
+    width: 576,
+    height: 1024,
+  },
+  manageResumes: {
+    src: "/images/android/android-manage-resumes-dashboard.webp",
+    alt: "Manage all resumes on Android — edit, duplicate, rename, and change templates in CV maker app",
+    width: 576,
+    height: 1024,
+  },
+  welcomeDashboard: {
+    src: "/images/android/android-resume-builder-welcome-dashboard.webp",
+    alt: "Android resume builder welcome dashboard — create professional CVs in minutes with guided steps",
+    width: 576,
+    height: 1024,
+  },
+} as const satisfies Record<string, AndroidImageAsset>;
+
+export type AndroidImageKey = keyof typeof ANDROID_IMAGES;
+
 export const IMAGES = {
   logo: "/images/logo.svg",
-  logoAlt: "Resume Builder and CV Maker App logo UK",
-  ogDefault: "/images/og-resume-builder-app.svg",
+  logoAlt: "Resume Builder and CV Maker App logo — free Android CV maker UK",
+  ogDefault: "/images/og-resume-builder-android-app.webp",
   ogAlt:
-    "ATS resume builder app — create professional UK CVs with AI templates and PDF export",
+    "Free Android resume builder app — create ATS-friendly UK CVs with 20+ templates and PDF export",
   avatars: {
     sarah: "/images/avatars/reviewer-sarah-marketing-uk.webp",
     james: "/images/avatars/reviewer-james-tech-uk.webp",
@@ -53,7 +121,7 @@ export const REVIEWS = [
     text: "Best CV maker app I've used. Created my resume in 10 minutes and got 3 interview calls!",
     rating: 5,
     avatar: IMAGES.avatars.sarah,
-    avatarAlt: "Sarah M. UK marketing professional reviewing resume builder app",
+    avatarAlt: "Sarah M. UK marketing professional reviewing Android resume builder app",
   },
   {
     name: "James K.",
@@ -61,7 +129,7 @@ export const REVIEWS = [
     text: "The ATS templates actually work. My resume passed every screening system I applied to.",
     rating: 5,
     avatar: IMAGES.avatars.james,
-    avatarAlt: "James K. UK tech professional ATS resume template review",
+    avatarAlt: "James K. UK tech professional ATS resume template review on Android",
   },
   {
     name: "Priya R.",
@@ -69,6 +137,6 @@ export const REVIEWS = [
     text: "Love the guided builder and PDF export. So much easier than Word templates.",
     rating: 5,
     avatar: IMAGES.avatars.priya,
-    avatarAlt: "Priya R. UK graduate using CV maker app on Android",
+    avatarAlt: "Priya R. UK graduate using Android CV maker app on Google Play",
   },
 ];

@@ -5,14 +5,8 @@ import { Badge, Container, Section } from "@/components/ui/button";
 import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreBadge, PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { HOME_FEATURES_PREVIEW } from "@/lib/features";
-import { APP_TAGLINE, IMAGES, REVIEWS, TRUST } from "@/lib/constants";
-import { HeroMockup } from "@/components/marketing/mockups/hero-mockup";
-import {
-  FeatureMockup,
-  GuidedBuilderMockup,
-  TemplatePickerMockup,
-} from "@/components/marketing/mockups/feature-mockups";
-import { BeforeAfterSection } from "@/components/marketing/mockups/before-after-section";
+import { ANDROID_IMAGES, APP_TAGLINE, IMAGES, REVIEWS, TRUST } from "@/lib/constants";
+import { AppScreenshot } from "@/components/marketing/app-screenshot";
 
 export function HeroSection() {
   return (
@@ -31,8 +25,9 @@ export function HeroSection() {
               <span className="gradient-text">with AI</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground md:text-xl">
-              Create professional, ATS-friendly resumes in seconds. 20+ templates,
-              guided builder, and instant PDF export — 100% free to download.
+              Create professional, ATS-friendly resumes in seconds on Android.
+              20+ templates, guided builder, and instant PDF export — 100% free
+              on Google Play.
             </p>
 
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -68,7 +63,12 @@ export function HeroSection() {
             </div>
           </div>
 
-          <HeroMockup />
+          <AppScreenshot
+            image="heroTemplates"
+            priority
+            containerClassName="overflow-hidden rounded-2xl border border-border shadow-2xl shadow-violet-500/10"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
       </Container>
     </Section>
@@ -85,41 +85,45 @@ export function FeaturesPreviewSection() {
             <span className="gradient-text">Get Hired</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Our AI resume builder app packs professional tools into a simple,
-            mobile-first experience.
+            Our Android resume builder app packs professional tools into a
+            simple, mobile-first experience.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {HOME_FEATURES_PREVIEW.map((feature) => (
-            <Link
-              key={feature.title}
-              href="/features"
-              className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
-            >
-              <div
-                className="border-b border-border/60 bg-muted/20 p-2"
-                role="img"
-                aria-label={feature.imageAlt}
+          {HOME_FEATURES_PREVIEW.map((feature) => {
+            const asset = ANDROID_IMAGES[feature.image];
+            return (
+              <Link
+                key={feature.title}
+                href="/features"
+                className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
               >
-                <FeatureMockup
-                  type={feature.mockup}
-                  className="pointer-events-none scale-[0.85] shadow-none"
-                />
-              </div>
-              <div className="p-5">
-                <div className="inline-flex rounded-xl bg-violet-500/10 p-2">
-                  <feature.icon className="h-5 w-5 text-violet-600" />
+                <div className="relative aspect-[9/16] max-h-52 overflow-hidden border-b border-border/60 bg-muted/20">
+                  <Image
+                    src={asset.src}
+                    alt={asset.alt}
+                    width={asset.width}
+                    height={asset.height}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
                 </div>
-                <h3 className="mt-3 text-lg font-semibold group-hover:text-violet-600">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+                <div className="p-5">
+                  <div className="inline-flex rounded-xl bg-violet-500/10 p-2">
+                    <feature.icon className="h-5 w-5 text-violet-600" />
+                  </div>
+                  <h3 className="mt-3 text-lg font-semibold group-hover:text-violet-600">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-10 text-center">
@@ -135,25 +139,65 @@ export function FeaturesPreviewSection() {
   );
 }
 
+export function LandDreamJobSection() {
+  return (
+    <Section className="bg-muted/30">
+      <Container>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <AppScreenshot
+            image="landDreamJob"
+            containerClassName="mx-auto max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl lg:max-w-md"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
+          <div>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Land Your Dream Job on Android
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Download free from Google Play and build a standout ATS resume
+              today. Switch between modern, minimal, and professional templates
+              — all from your phone.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                "No sign-up required — start instantly",
+                "Works offline — build anywhere",
+                "Free forever with premium upgrades",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-600" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <PlayStoreButton>Get the Android App</PlayStoreButton>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
 export function AppShowcaseSection() {
   return (
     <Section>
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div
-            role="img"
-            aria-label="Guided 8-step resume builder with live UK CV preview in mobile app"
-          >
-            <GuidedBuilderMockup />
-          </div>
+          <AppScreenshot
+            image="guidedBuilder"
+            containerClassName="mx-auto max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl lg:max-w-md"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
           <div>
             <h2 className="text-3xl font-bold md:text-4xl">
               Guided 8-Step Builder
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              From personal info to export — we guide you through every step.
-              Smart forms, auto-save, and drag-to-reorder sections help you
-              create resume online faster than any manual CV tool.
+              From personal info to export — we guide you through every step on
+              Android. Smart forms, auto-save, and drag-to-reorder sections help
+              you create a UK CV faster than any manual tool.
             </p>
             <ul className="mt-6 space-y-3">
               {[
@@ -245,8 +289,9 @@ export function TemplatesPreviewSection() {
               20+ ATS Resume Templates
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Modern CV templates, ATS-friendly layouts, and professional designs
-              — all editable on your phone. Switch templates with one tap.
+              Modern CV templates, ATS-friendly layouts, and professional
+              designs — all editable on your Android phone. Switch templates with
+              one tap.
             </p>
             <Link
               href="/templates"
@@ -255,12 +300,11 @@ export function TemplatesPreviewSection() {
               Browse all templates →
             </Link>
           </div>
-          <div
-            role="img"
-            aria-label="Professional UK resume template gallery with modern, minimal, and corporate CV layouts"
-          >
-            <TemplatePickerMockup />
-          </div>
+          <AppScreenshot
+            image="templatesGallery"
+            containerClassName="mx-auto max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl lg:max-w-md"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
         </div>
       </Container>
     </Section>
@@ -273,7 +317,7 @@ export function HomePageContent() {
       <HeroSection />
       <FeaturesPreviewSection />
       <CtaSection variant="primary" />
-      <BeforeAfterSection />
+      <LandDreamJobSection />
       <AppShowcaseSection />
       <TemplatesPreviewSection />
       <SocialProofSection />

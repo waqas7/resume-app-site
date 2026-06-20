@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container, Section, Badge } from "@/components/ui/button";
 import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreButton } from "@/components/conversion/play-store-badge";
@@ -11,6 +12,7 @@ import {
   TEMPLATE_CATEGORIES,
   type TemplateCategory,
 } from "@/lib/templates";
+import { ANDROID_IMAGES } from "@/lib/constants";
 import { ResumePreview } from "@/components/marketing/mockups/resume-preview";
 
 export default function TemplatesPage() {
@@ -37,9 +39,21 @@ export default function TemplatesPage() {
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
             Browse modern CV templates, ATS-friendly layouts, and professional
-            resume formats. Our CV maker app makes it easy to create resume
+            resume formats in our free Android CV maker app. Create resume
             online and export as PDF.
           </p>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-lg">
+            <Image
+              src={ANDROID_IMAGES.templatesGallery.src}
+              alt={ANDROID_IMAGES.templatesGallery.alt}
+              width={ANDROID_IMAGES.templatesGallery.width}
+              height={ANDROID_IMAGES.templatesGallery.height}
+              className="mx-auto h-auto w-full max-w-md"
+              priority
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {TEMPLATE_CATEGORIES.map((cat) => (

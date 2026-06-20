@@ -6,14 +6,19 @@ import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { FEATURES } from "@/lib/features";
 import { KEYWORDS } from "@/lib/constants";
-import { FeatureMockup } from "@/components/marketing/mockups/feature-mockups";
+import { AppScreenshot } from "@/components/marketing/app-screenshot";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Features — AI Resume Builder & ATS Tools",
+  title: "Features — AI Resume Builder & ATS Tools for Android",
   description:
-    "Explore AI resume generator, ATS optimization checker, professional templates, PDF export, cover letter generator, and resume score tools in our CV maker app.",
+    "Explore AI resume generator, ATS optimization, 20+ templates, PDF export, cover letters, and resume score tools in our free Android CV maker app.",
   path: "/features",
-  keywords: [...KEYWORDS, "AI resume generator", "ATS optimization", "PDF resume export"],
+  keywords: [
+    ...KEYWORDS,
+    "AI resume generator Android",
+    "ATS optimization app",
+    "PDF resume export Android",
+  ],
 });
 
 export default function FeaturesPage() {
@@ -22,12 +27,12 @@ export default function FeaturesPage() {
       <Section className="pt-16">
         <Container>
           <h1 className="text-4xl font-bold md:text-5xl">
-            Powerful Features for Your{" "}
+            Powerful Android Features for Your{" "}
             <span className="gradient-text">Perfect CV</span>
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            Everything you need to create resume online with our AI resume
-            builder app — from guided editing to ATS-friendly export.
+            Everything you need to create a professional UK resume on Android —
+            from guided editing to ATS-friendly PDF export. Free on Google Play.
           </p>
         </Container>
       </Section>
@@ -62,12 +67,14 @@ export default function FeaturesPage() {
                   ))}
                 </ul>
                 <div className="mt-8">
-                  <PlayStoreButton>Try It Free</PlayStoreButton>
+                  <PlayStoreButton>Try It Free on Android</PlayStoreButton>
                 </div>
               </div>
-              <div role="img" aria-label={feature.imageAlt}>
-                <FeatureMockup type={feature.mockup} />
-              </div>
+              <AppScreenshot
+                image={feature.image}
+                containerClassName="mx-auto max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl lg:max-w-md"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
             </div>
           </Container>
         </Section>
