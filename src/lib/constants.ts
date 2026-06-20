@@ -108,8 +108,9 @@ export const ANDROID_IMAGES = {
 export type AndroidImageKey = keyof typeof ANDROID_IMAGES;
 
 export const IMAGES = {
-  logo: "/images/logo.svg",
+  logo: "/images/resume-builder-cv-maker-app-logo.webp",
   logoAlt: "Resume Builder and CV Maker App logo — free Android CV maker UK",
+  appIcon: "/images/resume-builder-app-icon-512.webp",
   ogDefault: "/images/og-resume-builder-android-app.webp",
   ogAlt:
     "Free Android resume builder app — create ATS-friendly UK CVs with 20+ templates and PDF export",

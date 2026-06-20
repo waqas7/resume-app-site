@@ -17,17 +17,15 @@ import { AppScreenshot } from "@/components/marketing/app-screenshot";
 
 function FeaturePreviewImage({ asset }: { asset: AndroidImageAsset }) {
   return (
-    <div className="relative flex h-64 w-full items-center justify-center overflow-hidden border-b border-border/60 bg-gradient-to-br from-violet-500/[0.07] via-muted/30 to-blue-500/[0.07] px-6 py-4">
-      <div className="relative h-full w-full max-w-[10.5rem] sm:max-w-[11.5rem]">
-        <Image
-          src={asset.src}
-          alt={asset.alt}
-          fill
-          loading="lazy"
-          className="object-contain object-center drop-shadow-lg"
-          sizes="(max-width: 640px) 42vw, 180px"
-        />
-      </div>
+    <div className="relative aspect-[5/4] w-full overflow-hidden border-b border-border/60 bg-gradient-to-b from-violet-500/[0.06] to-muted/30">
+      <Image
+        src={asset.src}
+        alt={asset.alt}
+        fill
+        loading="lazy"
+        className="object-cover object-[50%_30%]"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
     </div>
   );
 }

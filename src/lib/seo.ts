@@ -48,8 +48,13 @@ export function buildMetadata({
       follow: true,
     },
     icons: {
-      icon: IMAGES.logo,
-      apple: IMAGES.logo,
+      icon: [
+        { url: "/images/resume-builder-app-icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: IMAGES.appIcon, sizes: "512x512", type: "image/webp" },
+      ],
+      apple: [
+        { url: "/images/resume-builder-app-icon-192.png", sizes: "192x192", type: "image/png" },
+      ],
     },
   };
 }
