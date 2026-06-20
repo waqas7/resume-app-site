@@ -5,25 +5,14 @@ import { Badge, Container, Section } from "@/components/ui/button";
 import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreBadge, PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { HOME_FEATURES_PREVIEW } from "@/lib/features";
-import { APP_TAGLINE, IMAGES, TRUST } from "@/lib/constants";
-
-const REVIEWS = [
-  {
-    name: "Sarah M.",
-    text: "Best CV maker app I've used. Created my resume in 10 minutes and got 3 interview calls!",
-    rating: 5,
-  },
-  {
-    name: "James K.",
-    text: "The ATS templates actually work. My resume passed every screening system I applied to.",
-    rating: 5,
-  },
-  {
-    name: "Priya R.",
-    text: "Love the guided builder and PDF export. So much easier than Word templates.",
-    rating: 5,
-  },
-];
+import { APP_TAGLINE, IMAGES, REVIEWS, TRUST } from "@/lib/constants";
+import { HeroMockup } from "@/components/marketing/mockups/hero-mockup";
+import {
+  FeatureMockup,
+  GuidedBuilderMockup,
+  TemplatePickerMockup,
+} from "@/components/marketing/mockups/feature-mockups";
+import { BeforeAfterSection } from "@/components/marketing/mockups/before-after-section";
 
 export function HeroSection() {
   return (
@@ -79,18 +68,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-blue-600/10 to-violet-600/10 shadow-2xl shadow-violet-500/10">
-              <Image
-                src={IMAGES.heroFeatureGraphic}
-                alt="Resume Builder app showing multiple CV templates on Android phones"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
+          <HeroMockup />
         </div>
       </Container>
     </Section>
@@ -117,17 +95,29 @@ export function FeaturesPreviewSection() {
             <Link
               key={feature.title}
               href="/features"
-              className="group rounded-2xl border border-border bg-card p-6 transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
             >
-              <div className="inline-flex rounded-xl bg-violet-500/10 p-3">
-                <feature.icon className="h-6 w-6 text-violet-600" />
+              <div
+                className="border-b border-border/60 bg-muted/20 p-2"
+                role="img"
+                aria-label={feature.imageAlt}
+              >
+                <FeatureMockup
+                  type={feature.mockup}
+                  className="pointer-events-none scale-[0.85] shadow-none"
+                />
               </div>
-              <h3 className="mt-4 text-lg font-semibold group-hover:text-violet-600">
-                {feature.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {feature.description}
-              </p>
+              <div className="p-5">
+                <div className="inline-flex rounded-xl bg-violet-500/10 p-2">
+                  <feature.icon className="h-5 w-5 text-violet-600" />
+                </div>
+                <h3 className="mt-3 text-lg font-semibold group-hover:text-violet-600">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
@@ -150,14 +140,11 @@ export function AppShowcaseSection() {
     <Section>
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-xl">
-            <Image
-              src={IMAGES.featureWelcome}
-              alt="Resume Builder app welcome screen with guided get started steps"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+          <div
+            role="img"
+            aria-label="Guided 8-step resume builder with live UK CV preview in mobile app"
+          >
+            <GuidedBuilderMockup />
           </div>
           <div>
             <h2 className="text-3xl font-bold md:text-4xl">
@@ -215,7 +202,21 @@ export function SocialProofSection() {
               key={review.name}
               className="rounded-2xl border border-border bg-card p-6"
             >
-              <div className="flex gap-1">
+              <div className="flex items-center gap-3">
+                <Image
+                  src={review.avatar}
+                  alt={review.avatarAlt}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-violet-500/20"
+                  loading="lazy"
+                />
+                <div>
+                  <footer className="text-sm font-semibold">{review.name}</footer>
+                  <p className="text-xs text-muted-foreground">{review.role}</p>
+                </div>
+              </div>
+              <div className="mt-3 flex gap-1">
                 {Array.from({ length: review.rating }).map((_, i) => (
                   <Star
                     key={i}
@@ -223,12 +224,9 @@ export function SocialProofSection() {
                   />
                 ))}
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">
+              <p className="mt-3 text-sm text-muted-foreground">
                 &ldquo;{review.text}&rdquo;
               </p>
-              <footer className="mt-4 text-sm font-semibold">
-                — {review.name}
-              </footer>
             </blockquote>
           ))}
         </div>
@@ -257,14 +255,11 @@ export function TemplatesPreviewSection() {
               Browse all templates →
             </Link>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-xl">
-            <Image
-              src={IMAGES.featureTemplates}
-              alt="20+ stunning resume templates in the CV maker app"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+          <div
+            role="img"
+            aria-label="Professional UK resume template gallery with modern, minimal, and corporate CV layouts"
+          >
+            <TemplatePickerMockup />
           </div>
         </div>
       </Container>
@@ -278,6 +273,7 @@ export function HomePageContent() {
       <HeroSection />
       <FeaturesPreviewSection />
       <CtaSection variant="primary" />
+      <BeforeAfterSection />
       <AppShowcaseSection />
       <TemplatesPreviewSection />
       <SocialProofSection />

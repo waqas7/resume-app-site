@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Check } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { Container, Section } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { FEATURES } from "@/lib/features";
 import { KEYWORDS } from "@/lib/constants";
+import { FeatureMockup } from "@/components/marketing/mockups/feature-mockups";
 
 export const metadata: Metadata = buildMetadata({
   title: "Features — AI Resume Builder & ATS Tools",
@@ -65,14 +65,8 @@ export default function FeaturesPage() {
                   <PlayStoreButton>Try It Free</PlayStoreButton>
                 </div>
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-xl">
-                <Image
-                  src={feature.image}
-                  alt={`${feature.title} in Resume Builder app`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              <div role="img" aria-label={feature.imageAlt}>
+                <FeatureMockup type={feature.mockup} />
               </div>
             </div>
           </Container>

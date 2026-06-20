@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#f8fafc"/>
-  <text x="600" y="100" fill="#1e293b" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="44" font-weight="800">Drag, Drop &amp; Reorder</text>
-  <text x="600" y="150" fill="#64748b" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="20">Customize every section your way</text>
-  <rect x="420" y="200" width="360" height="600" rx="32" fill="#111827" opacity="0.1"/>
-  <rect x="450" y="280" width="300" height="70" rx="12" fill="white" stroke="#2563EB" stroke-width="2" stroke-dasharray="8"/>
-  <rect x="450" y="370" width="300" height="60" rx="12" fill="white" stroke="#e2e8f0"/>
-  <rect x="450" y="450" width="300" height="60" rx="12" fill="white" stroke="#e2e8f0"/>
-</svg>

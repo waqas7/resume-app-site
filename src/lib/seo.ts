@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { APP_NAME, KEYWORDS, SITE_URL } from "./constants";
+import { APP_NAME, IMAGES, KEYWORDS, SITE_URL } from "./constants";
 
 type PageMeta = {
   title: string;
@@ -7,6 +7,7 @@ type PageMeta = {
   path: string;
   keywords?: string[];
   ogImage?: string;
+  ogImageAlt?: string;
 };
 
 export function buildMetadata({
@@ -14,7 +15,8 @@ export function buildMetadata({
   description,
   path,
   keywords = KEYWORDS,
-  ogImage = "/images/hero-feature-graphic.svg",
+  ogImage = IMAGES.ogDefault,
+  ogImageAlt = IMAGES.ogAlt,
 }: PageMeta): Metadata {
   const url = `${SITE_URL}${path}`;
   const fullTitle =
@@ -33,7 +35,7 @@ export function buildMetadata({
       title: fullTitle,
       description,
       siteName: APP_NAME,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: APP_NAME }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {
       card: "summary_large_image",
@@ -46,8 +48,8 @@ export function buildMetadata({
       follow: true,
     },
     icons: {
-      icon: "/images/logo.svg",
-      apple: "/images/logo.svg",
+      icon: IMAGES.logo,
+      apple: IMAGES.logo,
     },
   };
 }

@@ -13,7 +13,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <Image
             src={IMAGES.logo}
-            alt={APP_SHORT_NAME}
+            alt={IMAGES.logoAlt}
             width={36}
             height={36}
             className="rounded-lg"

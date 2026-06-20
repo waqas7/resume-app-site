@@ -21,7 +21,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5">
               <Image
                 src={IMAGES.logo}
-                alt={APP_SHORT_NAME}
+                alt={IMAGES.logoAlt}
                 width={40}
                 height={40}
                 className="rounded-lg"

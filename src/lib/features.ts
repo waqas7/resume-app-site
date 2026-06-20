@@ -7,7 +7,7 @@ import {
   LayoutTemplate,
   TrendingUp,
 } from "lucide-react";
-import { IMAGES } from "./constants";
+import type { FeatureMockupType } from "@/components/marketing/mockups/feature-mockups";
 
 export type Feature = {
   id: string;
@@ -15,7 +15,8 @@ export type Feature = {
   headline: string;
   description: string;
   icon: LucideIcon;
-  image: string;
+  mockup: FeatureMockupType;
+  imageAlt: string;
   bullets: string[];
 };
 
@@ -27,7 +28,9 @@ export const FEATURES: Feature[] = [
     description:
       "Our AI resume builder app helps you craft professional summaries, bullet points, and skills sections tailored to your job title. Create resume online in minutes—not hours.",
     icon: Brain,
-    image: IMAGES.featureGuidedBuilder,
+    mockup: "editor",
+    imageAlt:
+      "ATS resume builder app AI editor interface with smart suggestions for UK job applications",
     bullets: [
       "Smart suggestions for every section",
       "Job-title-aware content generation",
@@ -41,7 +44,9 @@ export const FEATURES: Feature[] = [
     description:
       "Get real-time ATS resume tips as you build. Our CV maker app checks formatting, keywords, and structure so recruiters and bots both read your resume correctly.",
     icon: CheckCircle2,
-    image: IMAGES.featureLivePreview,
+    mockup: "ats",
+    imageAlt:
+      "ATS optimization checker showing 94% resume score and keyword match for UK CV",
     bullets: [
       "Keyword density guidance",
       "Format compatibility checks",
@@ -55,7 +60,9 @@ export const FEATURES: Feature[] = [
     description:
       "Choose from modern CV templates, professional layouts, and creative designs. Every template is optimized for mobile editing and PDF export.",
     icon: LayoutTemplate,
-    image: IMAGES.featureTemplates,
+    mockup: "templates",
+    imageAlt:
+      "Professional UK resume template gallery with modern, minimal, and corporate CV layouts",
     bullets: [
       "Modern, minimal, and executive styles",
       "ATS-friendly layouts included",
@@ -69,7 +76,9 @@ export const FEATURES: Feature[] = [
     description:
       "Save your resume as a high-quality PDF or PNG/JPG and share anywhere—email, WhatsApp, LinkedIn, or Google Drive. No watermarks on export.",
     icon: FileDown,
-    image: IMAGES.featureExport,
+    mockup: "export",
+    imageAlt:
+      "One-click PDF export from CV maker app with print-ready A4 resume preview UK",
     bullets: [
       "PDF and image export options",
       "Share to any app instantly",
@@ -83,7 +92,9 @@ export const FEATURES: Feature[] = [
     description:
       "Generate tailored cover letters that complement your resume. Perfect for job applications where a CV alone isn't enough.",
     icon: FileText,
-    image: IMAGES.featureWelcome,
+    mockup: "cover-letter",
+    imageAlt:
+      "AI cover letter generator synced with resume data in CV maker app UK",
     bullets: [
       "Auto-filled from resume data",
       "Professional letter templates",
@@ -97,7 +108,9 @@ export const FEATURES: Feature[] = [
     description:
       "See your resume score improve as you complete sections. Get actionable tips to get hired faster with a stronger, more complete CV.",
     icon: TrendingUp,
-    image: IMAGES.featureManageResumes,
+    mockup: "score",
+    imageAlt:
+      "Resume score improvement dashboard showing section completion in ATS builder app",
     bullets: [
       "Section completion tracking",
       "Actionable improvement tips",
@@ -106,35 +119,53 @@ export const FEATURES: Feature[] = [
   },
 ];
 
-export const HOME_FEATURES_PREVIEW = [
+export const HOME_FEATURES_PREVIEW: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  mockup: FeatureMockupType;
+  imageAlt: string;
+}[] = [
   {
     title: "Guided 8-Step Builder",
     description: "From personal info to export—we guide you through.",
     icon: Brain,
+    mockup: "guided",
+    imageAlt: "Guided 8-step resume builder wizard with live CV preview UK",
   },
   {
     title: "20+ Stunning Templates",
     description: "Modern, minimal, professional, and creative designs.",
     icon: LayoutTemplate,
+    mockup: "templates",
+    imageAlt: "20+ ATS-friendly resume templates for UK jobs in CV maker app",
   },
   {
     title: "Live Resume Preview",
     description: "Pinch to zoom and see changes instantly.",
     icon: CheckCircle2,
+    mockup: "ats",
+    imageAlt: "Live ATS resume preview with real-time score checker UK",
   },
   {
     title: "Drag & Drop Reorder",
     description: "Customize every section your way.",
     icon: FileDown,
+    mockup: "drag-drop",
+    imageAlt: "Drag and drop resume section reordering in CV builder app",
   },
   {
     title: "PDF & Image Export",
     description: "Share anywhere, instantly.",
     icon: FileText,
+    mockup: "export",
+    imageAlt: "PDF and image export options from resume builder app UK",
   },
   {
     title: "Manage All Resumes",
     description: "Edit, duplicate, rename, and change templates.",
     icon: TrendingUp,
+    mockup: "score",
+    imageAlt: "Resume management dashboard with score tracking in CV app",
   },
 ];
