@@ -26,6 +26,7 @@ const MAP = [
   ["ss7-9d477961", "android-resume-pdf-export-feature"],
   ["ss3-d4e4f1be", "android-manage-resumes-dashboard"],
   ["ss6-4b2d5e73", "android-resume-builder-welcome-dashboard"],
+  ["ats_playstore_v2-494713e8", "android-ats-score-checker-app"],
 ];
 
 async function main() {

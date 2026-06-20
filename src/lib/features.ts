@@ -4,6 +4,7 @@ import {
   CheckCircle2,
   FileDown,
   FileText,
+  Gauge,
   LayoutTemplate,
   TrendingUp,
 } from "lucide-react";
@@ -41,7 +42,7 @@ export const FEATURES: Feature[] = [
     description:
       "Get real-time ATS resume tips as you build. Our CV maker app checks formatting, keywords, and structure so recruiters and bots both read your resume correctly.",
     icon: CheckCircle2,
-    image: "livePreview",
+    image: "atsScoreChecker",
     bullets: [
       "Keyword density guidance",
       "Format compatibility checks",
@@ -97,9 +98,9 @@ export const FEATURES: Feature[] = [
     description:
       "See your resume score improve as you complete sections. Get actionable tips to get hired faster with a stronger, more complete CV.",
     icon: TrendingUp,
-    image: "manageResumes",
+    image: "atsScoreChecker",
     bullets: [
-      "Section completion tracking",
+      "Real-time ATS compatibility score",
       "Actionable improvement tips",
       "Progress saved automatically",
     ],
@@ -129,6 +130,12 @@ export const HOME_FEATURES_PREVIEW: {
     description: "Pinch to zoom and see changes instantly.",
     icon: CheckCircle2,
     image: "livePreview",
+  },
+  {
+    title: "ATS Score Checker",
+    description: "Know your score and fix what matters instantly.",
+    icon: Gauge,
+    image: "atsScoreChecker",
   },
   {
     title: "Drag & Drop Reorder",

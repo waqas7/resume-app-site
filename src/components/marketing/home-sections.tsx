@@ -5,8 +5,32 @@ import { Badge, Container, Section } from "@/components/ui/button";
 import { CtaSection } from "@/components/conversion/cta-section";
 import { PlayStoreBadge, PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { HOME_FEATURES_PREVIEW } from "@/lib/features";
-import { ANDROID_IMAGES, APP_TAGLINE, IMAGES, REVIEWS, TRUST } from "@/lib/constants";
+import {
+  ANDROID_IMAGES,
+  APP_TAGLINE,
+  IMAGES,
+  REVIEWS,
+  TRUST,
+  type AndroidImageAsset,
+} from "@/lib/constants";
 import { AppScreenshot } from "@/components/marketing/app-screenshot";
+
+function FeaturePreviewImage({ asset }: { asset: AndroidImageAsset }) {
+  return (
+    <div className="relative flex h-64 w-full items-center justify-center overflow-hidden border-b border-border/60 bg-gradient-to-br from-violet-500/[0.07] via-muted/30 to-blue-500/[0.07] px-6 py-4">
+      <div className="relative h-full w-full max-w-[10.5rem] sm:max-w-[11.5rem]">
+        <Image
+          src={asset.src}
+          alt={asset.alt}
+          fill
+          loading="lazy"
+          className="object-contain object-center drop-shadow-lg"
+          sizes="(max-width: 640px) 42vw, 180px"
+        />
+      </div>
+    </div>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -97,20 +121,10 @@ export function FeaturesPreviewSection() {
               <Link
                 key={feature.title}
                 href="/features"
-                className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
               >
-                <div className="relative aspect-[9/16] max-h-52 overflow-hidden border-b border-border/60 bg-muted/20">
-                  <Image
-                    src={asset.src}
-                    alt={asset.alt}
-                    width={asset.width}
-                    height={asset.height}
-                    loading="lazy"
-                    className="h-full w-full object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-5">
+                <FeaturePreviewImage asset={asset} />
+                <div className="flex flex-1 flex-col p-5">
                   <div className="inline-flex rounded-xl bg-violet-500/10 p-2">
                     <feature.icon className="h-5 w-5 text-violet-600" />
                   </div>
@@ -133,6 +147,49 @@ export function FeaturesPreviewSection() {
           >
             Explore all features →
           </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+export function ATSScoreSection() {
+  return (
+    <Section>
+      <Container>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <Badge className="mb-4">Instant Analysis</Badge>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              ATS Score Checker
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Know your ATS compatibility score before you apply. Our Android
+              app analyses keywords, formatting, sections, and skills — then
+              suggests smart fixes to help your UK CV pass applicant tracking
+              systems.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Real-time score out of 100",
+                "Keyword match and formatting breakdown",
+                "Smart fixes for work experience, templates, and skills",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-600" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <PlayStoreButton>Check Your ATS Score Free</PlayStoreButton>
+            </div>
+          </div>
+          <AppScreenshot
+            image="atsScoreChecker"
+            containerClassName="mx-auto max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl lg:max-w-md"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
         </div>
       </Container>
     </Section>
@@ -316,6 +373,7 @@ export function HomePageContent() {
     <>
       <HeroSection />
       <FeaturesPreviewSection />
+      <ATSScoreSection />
       <CtaSection variant="primary" />
       <LandDreamJobSection />
       <AppShowcaseSection />

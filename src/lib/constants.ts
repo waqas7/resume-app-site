@@ -97,6 +97,12 @@ export const ANDROID_IMAGES = {
     width: 576,
     height: 1024,
   },
+  atsScoreChecker: {
+    src: "/images/android/android-ats-score-checker-app.webp",
+    alt: "Android ATS score checker app — instant resume compatibility analysis with smart fixes for UK job applications",
+    width: 576,
+    height: 1024,
+  },
 } as const satisfies Record<string, AndroidImageAsset>;
 
 export type AndroidImageKey = keyof typeof ANDROID_IMAGES;
