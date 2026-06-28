@@ -69,8 +69,8 @@ export const PROJECTS: Project[] = [
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.mwktech.affirmations.mindfuel",
     packageId: "com.mwktech.affirmations.mindfuel",
-    href: "/mindfuel",
-    accentClass: "from-amber-500 to-orange-600",
+    href: "/daily-affirmations-app",
+    accentClass: "from-violet-600 to-fuchsia-600",
     features: [
       "Daily affirmation reminders",
       "Categories: confidence, calm, self-love & more",
@@ -78,8 +78,8 @@ export const PROJECTS: Project[] = [
       "Share beautiful quote images",
       "Clean, minimal & offline",
     ],
-    icon: "/images/projects/mindfuel-icon.svg",
-    iconAlt: "MindFuel Daily Affirmations app icon",
+    icon: "/images/mindfuel/app-icon.png",
+    iconAlt: "MindFuel daily affirmations app icon",
   },
   {
     slug: "chat-meme",

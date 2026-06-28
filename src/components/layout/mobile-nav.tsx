@@ -20,9 +20,15 @@ function getMobileNavContext(pathname: string) {
     };
   }
 
-  const appMatch = pathname.match(/^\/(mindfuel|chat-meme|document-scanner)/);
+  const appMatch = pathname.match(
+    /^\/(daily-affirmations-app|mindfuel|chat-meme|document-scanner)/
+  );
   if (appMatch) {
-    const project = getProjectBySlug(appMatch[1]);
+    const slug =
+      appMatch[1] === "daily-affirmations-app" || appMatch[1] === "mindfuel"
+        ? "mindfuel"
+        : appMatch[1];
+    const project = getProjectBySlug(slug);
     return {
       navLinks: HUB_NAV_LINKS,
       playStoreUrl: project?.playStoreUrl ?? null,
