@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Pricing — Free vs Premium Resume Builder",
   description:
     "Compare free and premium plans for our CV maker app. Remove ads, unlock AI tools, and access premium templates. Most users choose Premium.",
-  path: "/pricing",
+  path: "/resume-builder/pricing",
   keywords: [...KEYWORDS, "resume builder pricing", "premium CV maker"],
 });
 

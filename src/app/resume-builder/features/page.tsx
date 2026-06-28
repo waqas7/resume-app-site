@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Features — AI Resume Builder & ATS Tools for Android",
   description:
     "Explore AI resume generator, ATS optimization, 20+ templates, PDF export, cover letters, and resume score tools in our free Android CV maker app.",
-  path: "/features",
+  path: "/resume-builder/features",
   keywords: [
     ...KEYWORDS,
     "AI resume generator Android",

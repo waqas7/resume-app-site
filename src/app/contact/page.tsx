@@ -7,11 +7,11 @@ import { PlayStoreButton } from "@/components/conversion/play-store-badge";
 import { SUPPORT_EMAIL, KEYWORDS } from "@/lib/constants";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About & Contact — Resume Builder App Support",
+  title: "About & Contact — MWK Technologies",
   description:
-    "Learn about our mission to make resume building easy with AI. Contact support for help with our CV maker app. Better than manual Word templates.",
+    "Contact MWK Technologies for app support. We build simple Android apps including Resume Builder, MindFuel, and more.",
   path: "/contact",
-  keywords: KEYWORDS,
+  keywords: [...KEYWORDS, "MWK Technologies contact", "Android app support"],
 });
 
 const WHY_AI = [
@@ -39,10 +39,9 @@ export default function ContactPage() {
         <Container>
           <h1 className="text-4xl font-bold md:text-5xl">About Us</h1>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            Our mission is simple: help everyone create a professional,
-            ATS-friendly resume — regardless of design skills or budget. The
-            Resume Builder & CV Maker App puts powerful career tools in your
-            pocket, for free.
+            MWK Technologies builds simple, offline-first Android apps — from
+            resume builders to daily affirmations. Our mission is to help people
+            solve everyday problems with focused tools that just work.
           </p>
         </Container>
       </Section>
@@ -69,11 +68,11 @@ export default function ContactPage() {
             combines guided step-by-step building, live preview, drag-and-drop
             reordering, and one-tap PDF export — all optimized for Android.
             Learn more on our{" "}
-            <Link href="/features" className="text-violet-600 hover:underline">
+            <Link href="/resume-builder/features" className="text-violet-600 hover:underline">
               features page
             </Link>{" "}
             or browse{" "}
-            <Link href="/templates" className="text-violet-600 hover:underline">
+            <Link href="/resume-builder/templates" className="text-violet-600 hover:underline">
               ATS resume templates
             </Link>
             .

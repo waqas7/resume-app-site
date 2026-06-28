@@ -15,7 +15,7 @@ import {
 import { ANDROID_IMAGES } from "@/lib/constants";
 import { ResumePreview } from "@/components/marketing/mockups/resume-preview";
 
-export default function TemplatesPage() {
+export default function TemplatesPageClient() {
   const [activeCategory, setActiveCategory] = useState<TemplateCategory | "all">(
     "all"
   );
@@ -146,7 +146,7 @@ export default function TemplatesPage() {
                 Read our UK resume format guide
               </Link>{" "}
               or{" "}
-              <Link href="/pricing" className="text-violet-600 hover:underline">
+              <Link href="/resume-builder/pricing" className="text-violet-600 hover:underline">
                 compare free vs premium
               </Link>
               .

@@ -1,5 +1,5 @@
-import { HomePageContent } from "@/components/marketing/home-sections";
+import { HubPageContent } from "@/components/marketing/hub-sections";
 
 export default function HomePage() {
-  return <HomePageContent />;
+  return <HubPageContent />;
 }

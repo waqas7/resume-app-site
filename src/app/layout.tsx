@@ -7,13 +7,9 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { StickyDownloadBar } from "@/components/conversion/sticky-download-bar";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-  getOrganizationSchema,
-  getSoftwareApplicationSchema,
-  getWebSiteSchema,
-} from "@/lib/schema";
+import { getOrganizationSchema, getWebSiteSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { APP_TAGLINE, KEYWORDS } from "@/lib/constants";
+import { BRAND } from "@/lib/projects";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,11 +18,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = buildMetadata({
-  title: APP_TAGLINE,
-  description:
-    "Download the best resume builder app for Android. Create ATS-friendly CVs with AI, 20+ professional templates, and one-click PDF export. Free on Google Play.",
+  title: BRAND.name,
+  description: BRAND.description,
   path: "/",
-  keywords: KEYWORDS,
+  keywords: [
+    "MWK Technologies",
+    "Android apps",
+    "offline Android apps",
+    "resume builder app",
+    "daily affirmations app",
+    "document scanner app",
+  ],
 });
 
 export default function RootLayout({
@@ -38,13 +40,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         <ThemeProvider>
-          <JsonLd
-            data={[
-              getSoftwareApplicationSchema(),
-              getOrganizationSchema(),
-              getWebSiteSchema(),
-            ]}
-          />
+          <JsonLd data={[getOrganizationSchema(), getWebSiteSchema()]} />
           <GoogleAnalytics />
           <Header />
           <main className="flex-1">{children}</main>

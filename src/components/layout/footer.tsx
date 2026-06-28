@@ -1,18 +1,16 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  APP_NAME,
-  APP_SHORT_NAME,
-  IMAGES,
-  NAV_LINKS,
-  PLAY_STORE_URL,
-  SITE_URL,
-  SUPPORT_EMAIL,
-} from "@/lib/constants";
+import { BRAND, PROJECTS, HUB_NAV_LINKS } from "@/lib/projects";
+import { SUPPORT_EMAIL } from "@/lib/constants";
 import { Container } from "@/components/ui/button";
-import { PlayStoreBadge } from "@/components/conversion/play-store-badge";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isResumeSection = pathname.startsWith("/resume-builder");
+
   return (
     <footer className="border-t border-border bg-muted/30 py-16">
       <Container>
@@ -20,34 +18,32 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
               <Image
-                src={IMAGES.logo}
-                alt={IMAGES.logoAlt}
+                src={BRAND.logo}
+                alt={BRAND.logoAlt}
                 width={40}
                 height={40}
                 className="rounded-lg"
               />
-              <span className="font-bold">{APP_SHORT_NAME}</span>
+              <span className="font-bold">{BRAND.name}</span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              {APP_NAME} — the fastest way to create ATS-friendly resumes and
-              professional CVs on Android. Free download with premium upgrades
-              available.
+              {BRAND.description}
             </p>
-            <div className="mt-6">
-              <PlayStoreBadge />
-            </div>
           </div>
 
           <div>
-            <h3 className="font-semibold">Pages</h3>
+            <h3 className="font-semibold">Apps</h3>
             <ul className="mt-4 space-y-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+              {PROJECTS.map((project) => (
+                <li key={project.slug}>
                   <Link
-                    href={link.href}
+                    href={project.href}
                     className="text-sm text-muted-foreground hover:text-foreground"
                   >
-                    {link.label}
+                    {project.name}
+                    {project.status === "coming-soon" && (
+                      <span className="ml-1 text-xs opacity-70">(soon)</span>
+                    )}
                   </Link>
                 </li>
               ))}
@@ -55,29 +51,38 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold">Support</h3>
+            <h3 className="font-semibold">Links</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              {HUB_NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-foreground">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              {isResumeSection && (
+                <>
+                  <li>
+                    <Link
+                      href="/resume-builder/features"
+                      className="hover:text-foreground"
+                    >
+                      Resume Features
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/resume-builder/templates"
+                      className="hover:text-foreground"
+                    >
+                      Resume Templates
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
-                <a
-                  href={`mailto:${SUPPORT_EMAIL}`}
-                  className="hover:text-foreground"
-                >
+                <a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-foreground">
                   {SUPPORT_EMAIL}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground"
-                >
-                  Google Play Store
-                </a>
-              </li>
-              <li>
-                <a href={SITE_URL} className="hover:text-foreground">
-                  muhammadwaqaskhan.com
                 </a>
               </li>
             </ul>
@@ -85,10 +90,8 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} {APP_NAME}. All rights reserved.</p>
-          <p>
-            Keywords: resume builder app · CV maker app · ATS resume templates
-          </p>
+          <p>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
+          <p>muhammadwaqaskhan.com</p>
         </div>
       </Container>
     </footer>

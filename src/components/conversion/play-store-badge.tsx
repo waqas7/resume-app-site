@@ -4,12 +4,17 @@ import { cn } from "@/lib/utils";
 type PlayStoreBadgeProps = {
   className?: string;
   size?: "sm" | "md" | "lg";
+  playStoreUrl?: string;
 };
 
-export function PlayStoreBadge({ className, size = "md" }: PlayStoreBadgeProps) {
+export function PlayStoreBadge({
+  className,
+  size = "md",
+  playStoreUrl = PLAY_STORE_URL,
+}: PlayStoreBadgeProps) {
   return (
     <a
-      href={PLAY_STORE_URL}
+      href={playStoreUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -48,14 +53,16 @@ export function PlayStoreBadge({ className, size = "md" }: PlayStoreBadgeProps) 
 export function PlayStoreButton({
   className,
   children = "Download Free",
+  playStoreUrl = PLAY_STORE_URL,
   ...props
 }: {
   className?: string;
   children?: React.ReactNode;
+  playStoreUrl?: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
-      href={PLAY_STORE_URL}
+      href={playStoreUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(

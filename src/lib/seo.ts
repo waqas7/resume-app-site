@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { APP_NAME, IMAGES, KEYWORDS, SITE_URL } from "./constants";
+import { IMAGES, KEYWORDS, SITE_URL } from "./constants";
+import { BRAND } from "./projects";
 
 type PageMeta = {
   title: string;
@@ -15,12 +16,14 @@ export function buildMetadata({
   description,
   path,
   keywords = KEYWORDS,
-  ogImage = IMAGES.ogDefault,
-  ogImageAlt = IMAGES.ogAlt,
+  ogImage = path === "/" ? BRAND.logo : IMAGES.ogDefault,
+  ogImageAlt = path === "/" ? BRAND.logoAlt : IMAGES.ogAlt,
 }: PageMeta): Metadata {
   const url = `${SITE_URL}${path}`;
   const fullTitle =
-    path === "/" ? `${title} | ${APP_NAME}` : `${title} | ${APP_NAME}`;
+    path === "/"
+      ? `${BRAND.name} — ${title}`
+      : `${title} | ${BRAND.name}`;
 
   return {
     title: fullTitle,
@@ -34,7 +37,7 @@ export function buildMetadata({
       url,
       title: fullTitle,
       description,
-      siteName: APP_NAME,
+      siteName: BRAND.name,
       images: [{ url: ogImage, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {

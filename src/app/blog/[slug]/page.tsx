@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mt-12 rounded-2xl bg-gradient-to-r from-blue-600/10 to-violet-600/10 p-6 text-center">
             <p className="font-semibold">Ready to build your resume?</p>
             <Link
-              href="/features"
+              href="/resume-builder/features"
               className="mt-2 inline-block text-sm text-violet-600 hover:underline"
             >
               Explore our resume builder app features →

@@ -118,7 +118,7 @@ export function FeaturesPreviewSection() {
             return (
               <Link
                 key={feature.title}
-                href="/features"
+                href="/resume-builder/features"
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
               >
                 <FeaturePreviewImage asset={asset} />
@@ -140,7 +140,7 @@ export function FeaturesPreviewSection() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/features"
+            href="/resume-builder/features"
             className="text-sm font-semibold text-violet-600 hover:underline dark:text-violet-400"
           >
             Explore all features →
@@ -349,7 +349,7 @@ export function TemplatesPreviewSection() {
               one tap.
             </p>
             <Link
-              href="/templates"
+              href="/resume-builder/templates"
               className="mt-6 inline-flex text-sm font-semibold text-violet-600 hover:underline dark:text-violet-400"
             >
               Browse all templates →
